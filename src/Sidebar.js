@@ -1,16 +1,40 @@
 import React from 'react';
+import { Avatar } from './Avatar';
 import './Sidebar.css';
+import avatarImage from './user-avatar.jpg';
 
-export const Sidebar = ({ viewMode }) => <aside className={`Sidebar Sidebar--viewmode-${viewMode || 'medium'}`}>
-  <header className="Sidebar__header">
-    Header
-  </header>
-
-  <div className="Sidebar__list">
-    Rooms list
+const Thumb = ({ children }) => (
+  <div className="Sidebar__header-thumb">
+    { children }
   </div>
+);
 
-  <footer className="Sidebar__footer">
-    Footer
-  </footer>
-</aside>;
+const Toolbar = ({ children }) => (
+  <div className="Sidebar__header-toolbar">
+    {children}
+  </div>
+);
+
+const Header = () => (
+  <header className="Sidebar__header">
+    <Thumb>
+      <Avatar image={avatarImage} status="online" />
+    </Thumb>
+    <Toolbar>
+    </Toolbar>
+  </header>
+);
+
+export const Sidebar = ({ viewMode }) => (
+  <aside className={`Sidebar Sidebar--viewmode-${viewMode || 'medium'}`}>
+    <Header />
+
+    <div className="Sidebar__list">
+      Rooms list
+    </div>
+
+    <footer className="Sidebar__footer">
+      Footer
+    </footer>
+  </aside>
+);

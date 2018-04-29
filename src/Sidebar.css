@@ -15,7 +15,15 @@
 }
 
 .Sidebar__header {
+  display: flex;
+  flex-direction: row;
   padding: var(--padding);
+}
+
+.Sidebar__header-thumb {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
 }
 
 .Sidebar__list {
