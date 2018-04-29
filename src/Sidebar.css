@@ -111,10 +111,6 @@
   padding: 23px;
 }
 
-.Sidebar__footer {
-  padding: 23px;
-}
-
 @media (min-width: 400px) {
   .Sidebar {
     width: var(--width-fixed);

@@ -51,9 +51,5 @@ export const Sidebar = ({ viewMode }) => (
     <div className="Sidebar__list">
       Rooms list
     </div>
-
-    <footer className="Sidebar__footer">
-      Footer
-    </footer>
   </aside>
 );
