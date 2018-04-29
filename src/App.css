@@ -1,3 +1,18 @@
 .App {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
 
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Meiryo UI';
+  font-size: 14px;
+  color: #444444;
+}
+
+.App main {
+  flex: 1;
+  padding: 1em;
+  align-self: center;
+  text-align: center;
 }
