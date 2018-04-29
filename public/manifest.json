@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rocket.Chat React Sidebar",
+  "name": "Rocket.Chat React Sidebar by Tasso Evangelista",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#444444",
   "background_color": "#ffffff"
 }
