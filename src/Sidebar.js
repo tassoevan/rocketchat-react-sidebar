@@ -22,9 +22,9 @@ const Toolbar = ({ children }) => (
 );
 
 const ToolbarButton = ({ icon, alt }) => (
-  <div className="Sidebar__toolbar-button">
+  <button className="Sidebar__toolbar-button" aria-label={alt}>
     <img src={icon} alt={alt} />
-  </div>
+  </button>
 );
 
 const Header = () => (

@@ -7,7 +7,6 @@
   width: var(--width-fluid);
   max-width: var(--width-fluid);
   height: 100%;
-  overflow: auto;
   color: #9ea2a8;
   background-color: #2f343d;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px 1px;
@@ -34,6 +33,7 @@
 }
 
 .Sidebar__toolbar-button {
+  position: relative;
   width: 22px;
   min-width: 22px;
   display: flex;
@@ -41,11 +41,70 @@
   justify-content: center;
 }
 
+.Sidebar__toolbar-button::after {
+  content: attr(aria-label);
+  /*display: none;*/
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  opacity: 0;
+  bottom: auto;
+  margin: 11px 0;
+  padding: .5em 1em;
+  border-radius: 2px;
+  background-color: #1f2329;
+  color: #ffffff;
+  white-space: nowrap;
+  font-size: 12px;
+  transition: opacity linear 250ms 100ms,
+    top linear 250ms 100ms;
+}
+
+.Sidebar__toolbar-button:hover::after {
+  display: block;
+  top: 100%;
+  opacity: 1;
+}
+
+/* Style reset { */
+.Sidebar__toolbar-button {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.Sidebar__toolbar-button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/* } */
+
+.Sidebar__toolbar-button:hover {
+  background: none;
+}
+
 .Sidebar__toolbar-button:last-child {
   width: 18px;
   min-width: 18px;
   margin-left: -8px;
   margin-right: -8px;
+}
+
+.Sidebar__toolbar-button-tooltip {
+  position: absolute;
 }
 
 .Sidebar__list {
