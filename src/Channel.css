@@ -1,0 +1,63 @@
+.Channel {
+  padding: 0 24px 12.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  flex-wrap: nowrap;
+}
+
+.Channel__icon {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  margin-right: 10px;
+  flex: 0;
+  border-radius: 2px;
+  color: #9ea2a8;
+  background-color: #1d74f5;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.Channel__description {
+  flex: 1;
+  min-width: 0;
+}
+
+.Channel__name {
+  font-weight: bold;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Channel__last-message {
+  min-width: 0;
+  font-size: 10px;
+  line-height: 1.25;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Channel__stats {
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.Channel__last-message-time-since {
+  font-size: 9px;
+  margin: 5px 0 3.5px 0;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.Channel__message-count {
+  background-color: #1d74f5;
+}

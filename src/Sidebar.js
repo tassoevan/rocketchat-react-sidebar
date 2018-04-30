@@ -1,5 +1,6 @@
 import React from 'react';
 import { Avatar } from './Avatar';
+import { Channel } from './Channel';
 import './Sidebar.css';
 import avatarImage from './assets/user-avatar.jpg';
 import searchIcon from './assets/icons/search.svg';
@@ -62,25 +63,11 @@ const List = ({ title, count, children }) => (
     ) : null}
 
     <ul className="Sidebar__list-items">
-      {children}
+      {React.Children.map(children, child => (
+        <li className="Sidebar__list-item">{child}</li>
+      ))}
     </ul>
   </div>
-);
-
-const Item = props => (
-  <li className="Sidebar__list-item" {...props} />
-);
-
-const Channel = ({ ...props }) => (
-  <Item>
-    <div className="Channel">
-      <div className="Channel__icon">G</div>
-      <div className="Channel__name">general</div>
-      <div className="Channel__last-message">ray.munoz: Lorem ipsum dolor</div>
-      <div className="Channel__elapsed-time">2h</div>
-      <div className="Channel__message-count Sidebar__list-counter">2</div>
-    </div>
-  </Item>
 );
 
 export const Sidebar = ({ viewMode }) => (
@@ -88,11 +75,11 @@ export const Sidebar = ({ viewMode }) => (
     <Header viewMode={viewMode} />
 
     <List title="Channels" count={7}>
-      <Channel />
-      <Channel />
-      <Channel />
-      <Channel />
-      <Channel />
+      <Channel viewMode={viewMode} />
+      <Channel viewMode={viewMode} />
+      <Channel viewMode={viewMode} />
+      <Channel viewMode={viewMode} />
+      <Channel viewMode={viewMode} />
     </List>
   </aside>
 );
