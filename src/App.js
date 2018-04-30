@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar viewMode='medium' />
+        <Sidebar viewMode='extended' />
 
         <main>
           Content goes here
