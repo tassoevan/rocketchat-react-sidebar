@@ -101,9 +101,12 @@
 }
 
 .Sidebar__list-title-counter {
+  background-color: #414852;
+}
+
+.Sidebar__list-counter {
   width: 20px;
   height: 20px;
-  background-color: #414852;
   border-radius: 2px;
   color: #9ea2a8;
   font-size: 10px;

@@ -52,19 +52,47 @@ const Header = ({ viewMode }) => (
   </header>
 );
 
+const List = ({ title, count, children }) => (
+  <div className="Sidebar__list">
+    {title ? (
+      <h2 className="Sidebar__list-title">
+        <span className="Sidebar__list-title-text">Channels</span>
+        <span className="Sidebar__list-title-counter Sidebar__list-counter">7</span>
+      </h2>
+    ) : null}
+
+    <ul className="Sidebar__list-items">
+      {children}
+    </ul>
+  </div>
+);
+
+const Item = props => (
+  <li className="Sidebar__list-item" {...props} />
+);
+
+const Channel = ({ ...props }) => (
+  <Item>
+    <div className="Channel">
+      <div className="Channel__icon">G</div>
+      <div className="Channel__name">general</div>
+      <div className="Channel__last-message">ray.munoz: Lorem ipsum dolor</div>
+      <div className="Channel__elapsed-time">2h</div>
+      <div className="Channel__message-count Sidebar__list-counter">2</div>
+    </div>
+  </Item>
+);
+
 export const Sidebar = ({ viewMode }) => (
   <aside className={`Sidebar Sidebar--viewmode-${viewMode}`}>
     <Header viewMode={viewMode} />
 
-    <div className="Sidebar__list">
-      <h2 className="Sidebar__list-title">
-        <span className="Sidebar__list-title-text">Channels</span>
-        <span className="Sidebar__list-title-counter">7</span>
-      </h2>
-
-      <ul>
-        <li></li>
-      </ul>
-    </div>
+    <List title="Channels" count={7}>
+      <Channel />
+      <Channel />
+      <Channel />
+      <Channel />
+      <Channel />
+    </List>
   </aside>
 );
