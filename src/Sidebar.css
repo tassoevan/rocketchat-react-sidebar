@@ -12,73 +12,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px 1px;
 }
 
-.Sidebar__header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin: 23px 14px 20px 14px;
-}
 
-.Sidebar__header-thumb {
-  margin: 0 10px;
-}
-
-.Sidebar__toolbar {
-  flex: 1;
-  margin: 2px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-}
-
-.Sidebar__toolbar-button, .Sidebar__toolbar-item {
-  position: relative;
-  min-width: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Sidebar__toolbar-button::after {
-  content: attr(aria-label);
-  display: block;
-  position: absolute;
-  z-index: 1;
-  top: 150%;
-  opacity: 0;
-  bottom: auto;
-  margin: 11px 0;
-  padding: .5em 1em;
-  border-radius: 2px;
-  background-color: #1f2329;
-  color: #ffffff;
-  white-space: nowrap;
-  font-size: 12px;
-  transition: opacity linear 250ms 100ms,
-    top linear 250ms 100ms;
-}
-
-.Sidebar__toolbar-button:hover::after {
-  display: block;
-  top: 100%;
-  opacity: 1;
-}
-
-.Sidebar__toolbar-button:hover {
-  background: none;
-}
-
-.Sidebar__toolbar-button:last-child {
-  width: 18px;
-  min-width: 18px;
-  margin-left: -8px;
-  margin-right: -8px;
-}
-
-.Sidebar__toolbar-button-tooltip {
-  position: absolute;
-}
 
 .Sidebar__list-title {
   align-items: center;
