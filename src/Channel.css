@@ -1,9 +1,15 @@
 .Channel {
-  padding: 0 24px 12.5px;
+  width: 100%;
+  padding: 6.5px 0 6.5px 24px;
   display: flex;
   flex-direction: row;
   justify-content: stretch;
   flex-wrap: nowrap;
+  transition: background-color linear 250ms;
+}
+
+.Channel:hover {
+  background-color: #1f2329;
 }
 
 .Channel__icon {
@@ -14,17 +20,37 @@
   margin-right: 10px;
   flex: 0;
   border-radius: 2px;
-  color: #9ea2a8;
-  background-color: #1d74f5;
+  color: #ffffff;
   font-size: 20px;
   line-height: 36px;
   text-align: center;
   vertical-align: baseline;
 }
 
+.Channel__icon--1 {
+  background-color: #4a90e2;
+}
+
+.Channel__icon--2 {
+  background-color: #7ed321;
+}
+
+.Channel__icon--3 {
+  background-color: #e45062;
+}
+
+.Channel__icon--4 {
+  background-color: #f5a623;
+}
+
+.Channel__icon--5 {
+  background-color: #f8e71c;
+}
+
 .Channel__description {
   flex: 1;
   min-width: 0;
+  text-align: left;
 }
 
 .Channel__name {
@@ -58,6 +84,20 @@
   vertical-align: baseline;
 }
 
-.Channel__message-count {
+.Channel__unread-messages-count {
   background-color: #1d74f5;
+}
+
+.Channel .Channel__more {
+  width: 24px;
+  min-width: 24px;
+  visibility: hidden;
+}
+
+.Channel:hover .Channel__more {
+  visibility: visible;
+  flex: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
