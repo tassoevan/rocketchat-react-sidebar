@@ -12,6 +12,11 @@
   background-color: #1f2329;
 }
 
+.Channel__body {
+  flex: 1;
+  display: flex;
+}
+
 .Channel__icon {
   width: 36px;
   min-width: 36px;
