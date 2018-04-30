@@ -59,7 +59,7 @@ export const Sidebar = ({ viewMode }) => (
     <div className="Sidebar__list">
       <h2 className="Sidebar__list-title">
         <span className="Sidebar__list-title-text">Channels</span>
-        <span className="Sidebar__list-title-count">7</span>
+        <span className="Sidebar__list-title-counter">7</span>
       </h2>
 
       <ul>
