@@ -65,6 +65,7 @@ button {
   cursor: pointer;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+  text-align: inherit;
 }
 
 button::-moz-focus-inner {
