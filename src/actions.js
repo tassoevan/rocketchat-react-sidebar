@@ -8,11 +8,11 @@ export const setSidebarViewMode = viewMode => ({
 });
 
 export const setSidebarAvatarVisibility = show => ({
-  type: SET_SIDEBAR_VIEWMODE,
+  type: SET_SIDEBAR_AVATAR_VISIBILITY,
   show: !!show
 });
 
 export const setSidebarSorting = sort => ({
-  type: SET_SIDEBAR_VIEWMODE,
+  type: SET_SIDEBAR_SORTING,
   sort
 });

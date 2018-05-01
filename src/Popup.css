@@ -43,7 +43,7 @@
   width: 16px;
 }
 
-.Popup__item-text {
+.Popup__item span {
   flex: 1;
   white-space: nowrap;
   font-size: 14px;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Sidebar } from './Sidebar';
+import { SidebarContainer } from './Sidebar';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar viewMode='extended' showAvatars sort='alphabetical' />
+        <SidebarContainer />
 
         <main>
           Content goes here

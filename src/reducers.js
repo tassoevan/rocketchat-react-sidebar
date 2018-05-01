@@ -10,16 +10,26 @@ const initialSidebarState = {
   showAvatars: true,
   sort: 'alphabetical'
 };
+
 const sidebar = (state = initialSidebarState, action) => {
   switch (action.type) {
     case SET_SIDEBAR_VIEWMODE:
-      return { viewMode: action.viewMode, ...state };
+      return {
+        ...state,
+        viewMode: action.viewMode
+      };
 
     case SET_SIDEBAR_AVATAR_VISIBILITY:
-      return { showAvatars: !!action.show, ...state };
+      return {
+        ...state,
+        showAvatars: !!action.show
+      };
 
     case SET_SIDEBAR_SORTING:
-      return { sort: action.sort, ...state };
+      return {
+        ...state,
+        sort: action.sort
+      };
 
     default:
       return state;

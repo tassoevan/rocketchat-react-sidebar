@@ -1,6 +1,12 @@
 import React from 'react';
 import { Channel, ChannelNotFound } from './Channel';
 import { Header } from './sidebar/Header';
+import { connect } from 'react-redux';
+import {
+  setSidebarViewMode,
+  setSidebarAvatarVisibility,
+  setSidebarSorting
+} from './actions';
 
 import data from './assets/data.json';
 
@@ -23,9 +29,22 @@ const List = ({ title, count, children }) => (
   </div>
 );
 
-export const Sidebar = ({ viewMode, showAvatars, sort }) => (
+const setViewMode =
+  (dispatch, viewMode) => dispatch && dispatch(setSidebarViewMode(viewMode));
+const setAvatarVisibility =
+  (dispatch, show) => dispatch && dispatch(setSidebarAvatarVisibility(show));
+const setSorting =
+  (dispatch, sort) => dispatch && dispatch(setSidebarSorting(sort));
+
+export const Sidebar = ({ viewMode, showAvatars, sort, dispatch }) => (
   <aside className={`Sidebar Sidebar--viewmode-${viewMode}`}>
-    <Header viewMode={viewMode} showAvatars={showAvatars} sort={sort} />
+    <Header
+      viewMode={viewMode}
+      onSetViewMode={viewMode => setViewMode(dispatch, viewMode)}
+      showAvatars={showAvatars}
+      onSetAvatarVisibility={show => setAvatarVisibility(dispatch, show)}
+      sort={sort}
+      onSetSorting={sort => setSorting(dispatch, sort)} />
 
     <List title="Channels" count={7}>
       {data.channelList.map((channel, key) => (
@@ -41,3 +60,7 @@ export const Sidebar = ({ viewMode, showAvatars, sort }) => (
     </List>
   </aside>
 );
+
+const mapStateToProps = ({ sidebar }) => ({ ...sidebar });
+
+export const SidebarContainer = connect(mapStateToProps)(Sidebar);

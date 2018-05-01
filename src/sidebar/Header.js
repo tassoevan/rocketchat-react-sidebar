@@ -47,7 +47,11 @@ export class Header extends Component {
   renderToolbar() {
     const {
       viewMode,
-      sort
+      showAvatars,
+      sort,
+      onSetViewMode,
+      onSetAvatarVisibility,
+      onSetSorting
     } = this.props;
     const { visiblePopup } = this.state;
 
@@ -67,26 +71,29 @@ export class Header extends Component {
           </Button>
 
           <Popup visible={visiblePopup === 'viewMode'} onDismiss={() => this.hidePopup()}>
-            <PopupItem selected={viewMode === 'extended'}>
+            <PopupItem selected={viewMode === 'extended'}
+              onClick={() => onSetViewMode && onSetViewMode('extended')}>
               <Icon name="viewMode--extended" />
-              Extended
+              <span>Extended</span>
             </PopupItem>
 
-            <PopupItem selected={viewMode === 'medium'}>
+            <PopupItem selected={viewMode === 'medium'}
+              onClick={() => onSetViewMode && onSetViewMode('medium')}>
               <Icon name="viewMode--medium" />
-              Medium
+              <span>Medium</span>
             </PopupItem>
 
-            <PopupItem selected={viewMode === 'condensed'}>
+            <PopupItem selected={viewMode === 'condensed'}
+              onClick={() => onSetViewMode && onSetViewMode('condensed')}>
               <Icon name="viewMode--condensed" />
-              Condensed
+              <span>Condensed</span>
             </PopupItem>
 
             <PopupSeparator />
 
-            <PopupItem>
+            <PopupItem onClick={() => onSetAvatarVisibility && onSetAvatarVisibility(!showAvatars)}>
               <Icon name="avatarVisibility" />
-              Hide Avatars
+              <span>{showAvatars ? 'Show Avatars' : 'Hide Avatars'}</span>
             </PopupItem>
           </Popup>
         </Item>
@@ -97,14 +104,16 @@ export class Header extends Component {
           </Button>
 
           <Popup visible={visiblePopup === 'sort'} onDismiss={() => this.hidePopup()}>
-            <PopupItem selected={sort === 'alphabetical'}>
+            <PopupItem selected={sort === 'alphabetical'}
+              onClick={() => onSetSorting && onSetSorting('alphabetical')}>
               <Icon name="sort--alphabetical" />
-              Alphabetical
+              <span>Alphabetical</span>
             </PopupItem>
 
-            <PopupItem selected={sort === 'activity'}>
+            <PopupItem selected={sort === 'activity'}
+              onClick={() => onSetSorting && onSetSorting('activity')}>
               <Icon name="sort--activity" />
-              Activity
+              <span>Activity</span>
             </PopupItem>
           </Popup>
         </Item>
