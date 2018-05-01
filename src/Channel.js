@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Icon } from './Icon';
 import './Channel.css';
-import ellipsisIcon from './assets/icons/ellipsis-v.svg';
 
 export class Channel extends Component {
   render() {
@@ -18,7 +18,7 @@ export class Channel extends Component {
           </div>
         </button>
         <button className="Channel__more" aria-label="More">
-          <img src={ellipsisIcon} alt="More" />
+          <Icon name="ellipsis" />
         </button>
       </div>
     );
