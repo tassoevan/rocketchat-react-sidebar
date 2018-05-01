@@ -1,6 +1,22 @@
-.Popup {
+.Popup__wrapper {
   position: absolute;
   top: 100%;
+}
+
+.Popup__wrapper::before {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  content: "";
+}
+
+.Popup {
+  position: relative;
+  z-index: 2;
   margin: 7px;
   padding: 7px 0;
   min-width: 134px;

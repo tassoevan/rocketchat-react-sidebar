@@ -39,9 +39,12 @@ export class Header extends Component {
     visiblePopup: null
   }
 
-  openPopup(e, visiblePopup) {
+  openPopup(visiblePopup) {
     this.setState({ visiblePopup });
-    e.target.blur();
+  }
+
+  hidePopup() {
+    this.setState({ visiblePopup: null });
   }
 
   render() {
@@ -60,9 +63,9 @@ export class Header extends Component {
 
           <ToolbarItem>
             <ToolbarButton icon={getViewModeIcon(viewMode)} alt="View Mode"
-              onClick={e => this.openPopup(e, 'viewMode')} />
+              onClick={() => this.openPopup('viewMode')} />
 
-            <Popup visible={visiblePopup === 'viewMode'}>
+            <Popup visible={visiblePopup === 'viewMode'} onDismiss={() => this.hidePopup()}>
               <PopupItem icon={viewModeExtendedIcon} selected>Extended</PopupItem>
               <PopupItem icon={viewModeMediumIcon}>Medium</PopupItem>
               <PopupItem icon={viewModeCondensedIcon}>Condensed</PopupItem>
@@ -73,9 +76,9 @@ export class Header extends Component {
 
           <ToolbarItem>
             <ToolbarButton icon={sortAlphabeticallyIcon} alt="Sort"
-              onClick={e => this.openPopup(e, 'sort')} />
+              onClick={() => this.openPopup('sort')} />
 
-            <Popup visible={visiblePopup === 'sort'}>
+            <Popup visible={visiblePopup === 'sort'} onDismiss={() => this.hidePopup()}>
               <PopupItem icon={sortAlphabeticallyIcon} selected>Alphabetical</PopupItem>
               <PopupItem icon={sortByActivityIcon}>Activity</PopupItem>
             </Popup>

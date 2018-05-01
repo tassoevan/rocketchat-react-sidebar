@@ -1,10 +1,12 @@
 import React from 'react';
 import './Popup.css';
 
-export const Popup = ({ children, visible, ...props }) => visible ? (
-  <ul className="Popup" {...props}>
-    {children}
-  </ul>
+export const Popup = ({ children, visible, onDismiss, ...props }) => visible ? (
+  <div className="Popup__wrapper" onClick={onDismiss}>
+    <ul className="Popup" {...props}>
+      {children}
+    </ul>
+  </div>
 ) : null;
 
 export const Item = ({ children, icon, selected, ...props }) => (
