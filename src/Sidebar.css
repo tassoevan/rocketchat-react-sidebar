@@ -12,17 +12,14 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px 1px;
 }
 
-
-
 .Sidebar__list-title {
   align-items: center;
   justify-content: space-between;
-  margin: 0;
-  padding: 0 24px 8px;
+  margin: 0 0 5px 0;
+  padding: 6px 24px 4px;
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  line-height: 18px;
 }
 
 .Sidebar__list-title-text {
@@ -39,14 +36,12 @@
 .Sidebar__list-counter {
   width: 20px;
   min-width: 20px;
-  height: 20px;
-  min-height: 20px;
-  line-height: 20px;
+  padding: 5px 0 5px 0;
+  line-height: 1;
   border-radius: 2px;
   color: #9ea2a8;
   font-size: 10px;
   text-align: center;
-  vertical-align: baseline;
 }
 
 @media (min-width: 400px) {

@@ -23,7 +23,7 @@ const Item = props => (
 
 export class Header extends Component {
   state = {
-    showSearchBar: true,
+    showSearchBar: false,
     searchText: '',
     visiblePopup: null
   }
