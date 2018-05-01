@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar viewMode='extended' />
+        <Sidebar viewMode='extended' showAvatars sort='alphabetical' />
 
         <main>
           Content goes here

@@ -45,7 +45,10 @@ export class Header extends Component {
   }
 
   renderToolbar() {
-    const { viewMode } = this.props;
+    const {
+      viewMode,
+      sort
+    } = this.props;
     const { visiblePopup } = this.state;
 
     return (
@@ -64,17 +67,17 @@ export class Header extends Component {
           </Button>
 
           <Popup visible={visiblePopup === 'viewMode'} onDismiss={() => this.hidePopup()}>
-            <PopupItem selected>
+            <PopupItem selected={viewMode === 'extended'}>
               <Icon name="viewMode--extended" />
               Extended
             </PopupItem>
 
-            <PopupItem>
+            <PopupItem selected={viewMode === 'medium'}>
               <Icon name="viewMode--medium" />
               Medium
             </PopupItem>
 
-            <PopupItem>
+            <PopupItem selected={viewMode === 'condensed'}>
               <Icon name="viewMode--condensed" />
               Condensed
             </PopupItem>
@@ -94,12 +97,12 @@ export class Header extends Component {
           </Button>
 
           <Popup visible={visiblePopup === 'sort'} onDismiss={() => this.hidePopup()}>
-            <PopupItem selected>
+            <PopupItem selected={sort === 'alphabetical'}>
               <Icon name="sort--alphabetical" />
               Alphabetical
             </PopupItem>
 
-            <PopupItem>
+            <PopupItem selected={sort === 'activity'}>
               <Icon name="sort--activity" />
               Activity
             </PopupItem>

@@ -23,9 +23,9 @@ const List = ({ title, count, children }) => (
   </div>
 );
 
-export const Sidebar = ({ viewMode }) => (
+export const Sidebar = ({ viewMode, showAvatars, sort }) => (
   <aside className={`Sidebar Sidebar--viewmode-${viewMode}`}>
-    <Header viewMode={viewMode} />
+    <Header viewMode={viewMode} showAvatars={showAvatars} sort={sort} />
 
     <List title="Channels" count={7}>
       {data.channelList.map((channel, key) => (
@@ -34,10 +34,10 @@ export const Sidebar = ({ viewMode }) => (
           unreadMessages={channel.unreadMessages}
           lastMessage={channel.lastMessage}
           viewMode={viewMode}
-          showAvatar />
+          showAvatar={showAvatars} />
       ))}
 
-      <ChannelNotFound />
+      <ChannelNotFound showAvatar={showAvatars} />
     </List>
   </aside>
 );

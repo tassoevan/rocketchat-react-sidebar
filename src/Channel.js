@@ -69,10 +69,10 @@ export class Channel extends Component {
   }
 }
 
-export const ChannelNotFound = () => (
+export const ChannelNotFound = ({ showAvatar }) => (
   <div className="Channel Channel--not-found">
     <div className="Channel__body">
-      <div className="Channel__avatar" />
+      {showAvatar ? <div className="Channel__avatar" /> : null}
 
       <div className="Channel__description">
         <div className="Channel__name">Sorry</div>
