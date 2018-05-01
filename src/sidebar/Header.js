@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Avatar } from '../Avatar';
+import { ImageAvatar } from '../Avatar';
 import { Icon } from '../Icon';
 import { Popup, Item as PopupItem, Separator as PopupSeparator } from '../Popup';
 
@@ -83,7 +83,7 @@ export class Header extends Component {
 
             <PopupItem>
               <Icon name="avatarVisibility" />
-              Hide Avatar
+              Hide Avatars
             </PopupItem>
           </Popup>
         </Item>
@@ -144,7 +144,7 @@ export class Header extends Component {
     return (
       <header className="Sidebar__header">
         <div className="Sidebar__header-thumb">
-          <Avatar image={avatarImage} status="online" />
+          <ImageAvatar src={avatarImage} status="online" />
         </div>
 
         {showSearchBar ? this.renderSearchBar() : this.renderToolbar()}

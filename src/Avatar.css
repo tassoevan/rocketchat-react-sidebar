@@ -1,14 +1,30 @@
 .Avatar {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .Avatar__image {
-  width: 23px;
-  height: 23px;
+  width: 100%;
+  height: 100%;
   border-radius: 2px;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.Avatar__text {
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  flex: 0;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: baseline;
 }
 
 .Avatar__status {

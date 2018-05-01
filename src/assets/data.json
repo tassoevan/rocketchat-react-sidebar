@@ -1,0 +1,46 @@
+{
+  "channelList": [
+    {
+      "name": "general",
+      "unreadMessages": 2,
+      "createdAt": 1508001784,
+      "lastMessage": {
+        "user": "ray.munoz",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis vitae odio finibus sodales. Morbi sollicitudin dolor erat, id condimentum elit dapibus quis.",
+        "timestamp": 1523039400
+      }
+    },
+    {
+      "name": "random",
+      "unreadMessages": 0,
+      "createdAt": 1513849380,
+      "lastMessage": false
+    },
+    {
+      "name": "sales",
+      "unreadMessages": 0,
+      "createdAt": 1511927520,
+      "lastMessage": false
+    },
+    {
+      "name": "stuffs",
+      "unreadMessages": 5,
+      "createdAt": 1508927644,
+      "lastMessage": {
+        "user": "jorge",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis vitae odio finibus sodales. Morbi sollicitudin dolor erat, id condimentum elit dapibus quis.",
+        "timestamp": 1520226000
+      }
+    },
+    {
+      "name": "marketing",
+      "unreadMessages": 0,
+      "createdAt": 1510677724,
+      "lastMessage": {
+        "user": "marcos",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis vitae odio finibus sodales. Morbi sollicitudin dolor erat, id condimentum elit dapibus quis.",
+        "timestamp": 1522742640
+      }
+    }
+  ]
+}

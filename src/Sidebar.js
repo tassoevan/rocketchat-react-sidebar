@@ -2,6 +2,8 @@ import React from 'react';
 import { Channel } from './Channel';
 import { Header } from './sidebar/Header';
 
+import data from './assets/data.json';
+
 import './Sidebar.css';
 
 const List = ({ title, count, children }) => (
@@ -26,11 +28,14 @@ export const Sidebar = ({ viewMode }) => (
     <Header viewMode={viewMode} />
 
     <List title="Channels" count={7}>
-      <Channel viewMode={viewMode} />
-      <Channel viewMode={viewMode} />
-      <Channel viewMode={viewMode} />
-      <Channel viewMode={viewMode} />
-      <Channel viewMode={viewMode} />
+      {data.channelList.map((channel, key) => (
+        <Channel key={key}
+          name={channel.name}
+          unreadMessages={channel.unreadMessages}
+          lastMessage={channel.lastMessage}
+          viewMode={viewMode}
+          showAvatar />
+      ))}
     </List>
   </aside>
 );

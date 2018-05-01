@@ -7,6 +7,8 @@
 
 .Sidebar__header-thumb {
   margin: 0 10px;
+  width: 23px;
+  height: 23px;
 }
 
 .Sidebar__toolbar, .Sidebar__search {

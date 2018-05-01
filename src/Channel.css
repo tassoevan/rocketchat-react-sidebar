@@ -1,10 +1,6 @@
 .Channel {
-  width: 100%;
-  padding: 6.5px 0 6.5px 24px;
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
-  flex-wrap: nowrap;
   transition: background-color linear 250ms;
 }
 
@@ -14,59 +10,39 @@
 
 .Channel__body {
   flex: 1;
+  min-width: 0;
   display: flex;
+  padding: 6.5px 0 6.5px 24px;
 }
 
-.Channel__icon {
+.Channel__avatar {
   width: 36px;
   min-width: 36px;
   height: 36px;
   min-height: 36px;
   margin-right: 10px;
-  flex: 0;
-  border-radius: 2px;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 36px;
-  text-align: center;
-  vertical-align: baseline;
-}
-
-.Channel__icon--1 {
-  background-color: #4a90e2;
-}
-
-.Channel__icon--2 {
-  background-color: #7ed321;
-}
-
-.Channel__icon--3 {
-  background-color: #e45062;
-}
-
-.Channel__icon--4 {
-  background-color: #f5a623;
-}
-
-.Channel__icon--5 {
-  background-color: #f8e71c;
 }
 
 .Channel__description {
   flex: 1;
   min-width: 0;
   text-align: left;
+  margin-right: 10px;
+}
+
+.Channel--has-unread-messages .Channel__description {
+  color: #ffffff;
 }
 
 .Channel__name {
   font-weight: bold;
   line-height: 1.5;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .Channel__last-message {
-  min-width: 0;
   font-size: 10px;
   line-height: 1.25;
   overflow: hidden;
@@ -89,8 +65,9 @@
   vertical-align: baseline;
 }
 
-.Channel__unread-messages-count {
+.Channel .Channel__unread-messages-count {
   background-color: #1d74f5;
+  color: #ffffff;
 }
 
 .Channel .Channel__more {
