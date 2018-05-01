@@ -2,7 +2,11 @@ import { combineReducers } from 'redux';
 import {
   SET_SIDEBAR_VIEWMODE,
   SET_SIDEBAR_AVATAR_VISIBILITY,
-  SET_SIDEBAR_SORTING
+  SET_SIDEBAR_SORTING,
+  SEARCH_IN_SIDEBAR,
+  CLEAR_SEARCH_IN_SIDEBAR,
+  SHOW_POPUP,
+  HIDE_POPUP
 } from './actions';
 
 const initialSidebarState = {
@@ -31,11 +35,47 @@ const sidebar = (state = initialSidebarState, action) => {
         sort: action.sort
       };
 
+    case SEARCH_IN_SIDEBAR:
+      return {
+        ...state,
+        searchText: action.text
+      };
+
+    case CLEAR_SEARCH_IN_SIDEBAR:
+      return {
+        ...state,
+        searchText: null
+      };
+
+    default:
+      return state;
+  }
+};
+
+const initialPopupState = {
+  visiblePopupId: null
+};
+
+const popup = (state = initialPopupState, action) => {
+  switch (action.type) {
+    case SHOW_POPUP:
+      return {
+        ...state,
+        visiblePopupId: action.id
+      };
+
+    case HIDE_POPUP:
+      return {
+        ...state,
+        visiblePopupId: null
+      };
+
     default:
       return state;
   }
 };
 
 export default combineReducers({
-  sidebar
+  sidebar,
+  popup
 });

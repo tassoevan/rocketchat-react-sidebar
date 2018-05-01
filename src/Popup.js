@@ -1,7 +1,9 @@
 import React, { Children } from 'react';
+import { connect } from 'react-redux';
+import { hidePopup } from './actions';
 import './Popup.css';
 
-export const Popup = ({ children, visible, onDismiss, ...props }) => visible ? (
+export const Popup = ({ children, visible, onDismiss, popupId, dispatch, ...props }) => visible ? (
   <div className="Popup__wrapper" onClick={e => onDismiss && onDismiss()}>
     <ul className="Popup" onClick={e => e.stopPropagation()} {...props}>
       {Children.map(children, child => React.cloneElement(child, { onDismiss }))}
@@ -23,3 +25,13 @@ export const Item = ({ children, icon, selected, onClick, onDismiss, ...props })
 export const Separator = () => (
   <li className="Popup__separator" />
 );
+
+const mapStateToProps = ({ popup }, { popupId }) => ({
+  visible: popup.visiblePopupId === popupId
+});
+
+const mapDispatchToProps = dispatch => ({
+  onDismiss: () => dispatch && dispatch(hidePopup())
+});
+
+export const ActionablePopup = connect(mapStateToProps, mapDispatchToProps)(Popup);
