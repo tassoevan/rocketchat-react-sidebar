@@ -4,7 +4,7 @@
   transition: background-color linear 250ms;
 }
 
-.Channel:hover {
+.Channel:not(.Channel--not-found):hover {
   background-color: #1f2329;
 }
 
@@ -13,6 +13,11 @@
   min-width: 0;
   display: flex;
   padding: 6.5px 0 6.5px 24px;
+}
+
+.Channel--not-found .Channel__avatar {
+  border: 2px dashed #5d6065;
+  border-radius: 2px;
 }
 
 .Channel__avatar {

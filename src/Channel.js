@@ -68,3 +68,16 @@ export class Channel extends Component {
     );
   }
 }
+
+export const ChannelNotFound = () => (
+  <div className="Channel Channel--not-found">
+    <div className="Channel__body">
+      <div className="Channel__avatar" />
+
+      <div className="Channel__description">
+        <div className="Channel__name">Sorry</div>
+        <div className="Channel__last-message">Nothing found</div>
+      </div>
+    </div>
+  </div>
+);

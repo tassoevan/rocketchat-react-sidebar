@@ -1,5 +1,5 @@
 import React from 'react';
-import { Channel } from './Channel';
+import { Channel, ChannelNotFound } from './Channel';
 import { Header } from './sidebar/Header';
 
 import data from './assets/data.json';
@@ -36,6 +36,8 @@ export const Sidebar = ({ viewMode }) => (
           viewMode={viewMode}
           showAvatar />
       ))}
+
+      <ChannelNotFound />
     </List>
   </aside>
 );
