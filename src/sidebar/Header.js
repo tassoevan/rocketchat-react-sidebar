@@ -1,38 +1,19 @@
 import React, { Component } from 'react';
 import { Avatar } from '../Avatar';
+import { Icon } from '../Icon';
 import { Popup, Item as PopupItem, Separator as PopupSeparator } from '../Popup';
 
 import './Header.css';
 
 import avatarImage from '../assets/user-avatar.jpg';
-import searchIcon from '../assets/icons/search.svg';
-import directoryIcon from '../assets/icons/globe.svg';
-import viewModeExtendedIcon from '../assets/icons/th-list.svg';
-import viewModeMediumIcon from '../assets/icons/liat.svg';
-import viewModeCondensedIcon from '../assets/icons/list-alt.svg';
-import toggleAvatarVisibilityIcon from '../assets/icons/user-circle.svg';
-import sortAlphabeticallyIcon from '../assets/icons/sort-alpha-down.svg';
-import sortByActivityIcon from '../assets/icons/clock.svg';
-import createANewChannelIcon from '../assets/icons/plus.svg';
-import ellipsisIcon from '../assets/icons/ellipsis-v.svg';
 
-const ToolbarButton = ({ icon, alt, ...props }) => (
-  <button className="Sidebar__toolbar-button" aria-label={alt} {...props}>
-    <img src={icon} alt={alt} />
-  </button>
+const Button = ({ label, ...props}) => (
+  <button className="Sidebar__toolbar-button" aria-label={label} {...props} />
 );
 
-const ToolbarItem = ({ children }) => (
-  <div className="Sidebar__toolbar-item">
-    {children}
-  </div>
+const Item = props => (
+  <div className="Sidebar__toolbar-item" {...props} />
 );
-
-const getViewModeIcon = viewMode => (({
-  extended: viewModeExtendedIcon,
-  medium: viewModeMediumIcon,
-  condensed: viewModeCondensedIcon
-}))[viewMode];
 
 export class Header extends Component {
   state = {
@@ -58,34 +39,69 @@ export class Header extends Component {
         </div>
 
         <div className="Sidebar__toolbar">
-          <ToolbarButton icon={searchIcon} alt="Search" />
-          <ToolbarButton icon={directoryIcon} alt="Directory " />
+          <Button label="Search">
+            <Icon name="search" />
+          </Button>
 
-          <ToolbarItem>
-            <ToolbarButton icon={getViewModeIcon(viewMode)} alt="View Mode"
-              onClick={() => this.openPopup('viewMode')} />
+          <Button label="Directory">
+            <Icon name="directory" />
+          </Button>
+
+          <Item>
+            <Button label="View Mode" onClick={() => this.openPopup('viewMode')}>
+              <Icon name={`viewMode--${viewMode}`} />
+            </Button>
 
             <Popup visible={visiblePopup === 'viewMode'} onDismiss={() => this.hidePopup()}>
-              <PopupItem icon={viewModeExtendedIcon} selected>Extended</PopupItem>
-              <PopupItem icon={viewModeMediumIcon}>Medium</PopupItem>
-              <PopupItem icon={viewModeCondensedIcon}>Condensed</PopupItem>
-              <PopupSeparator />
-              <PopupItem icon={toggleAvatarVisibilityIcon}>Hide Avatar</PopupItem>
-            </Popup>
-          </ToolbarItem>
+              <PopupItem selected>
+                <Icon name="viewMode--extended" />
+                Extended
+              </PopupItem>
 
-          <ToolbarItem>
-            <ToolbarButton icon={sortAlphabeticallyIcon} alt="Sort"
-              onClick={() => this.openPopup('sort')} />
+              <PopupItem>
+                <Icon name="viewMode--medium" />
+                Medium
+              </PopupItem>
+
+              <PopupItem>
+                <Icon name="viewMode--condensed" />
+                Condensed
+              </PopupItem>
+
+              <PopupSeparator />
+
+              <PopupItem>
+                <Icon name="avatarVisibility" />
+                Hide Avatar
+              </PopupItem>
+            </Popup>
+          </Item>
+
+          <Item>
+            <Button label="Sort" onClick={() => this.openPopup('sort')}>
+              <Icon name="sort--alphabetical" />
+            </Button>
 
             <Popup visible={visiblePopup === 'sort'} onDismiss={() => this.hidePopup()}>
-              <PopupItem icon={sortAlphabeticallyIcon} selected>Alphabetical</PopupItem>
-              <PopupItem icon={sortByActivityIcon}>Activity</PopupItem>
-            </Popup>
-          </ToolbarItem>
+              <PopupItem selected>
+                <Icon name="sort--alphabetical" />
+                Alphabetical
+              </PopupItem>
 
-          <ToolbarButton icon={createANewChannelIcon} alt="Create a New Channel" />
-          <ToolbarButton icon={ellipsisIcon} alt="More" />
+              <PopupItem>
+                <Icon name="sort--activity" />
+                Activity
+              </PopupItem>
+            </Popup>
+          </Item>
+
+          <Button label="Create a New Channel">
+            <Icon name="createANewChannel" />
+          </Button>
+
+          <Button label="More">
+            <Icon name="ellipsis" />
+          </Button>
         </div>
       </header>
     );

@@ -12,8 +12,7 @@ export const Popup = ({ children, visible, onDismiss, ...props }) => visible ? (
 export const Item = ({ children, icon, selected, ...props }) => (
   <li className={`Popup__item${selected ? ' Popup__item--selected' : ''}`}>
     <button className="Popup__item-button" {...props}>
-      {icon ? <img src={icon} alt="" className="Popup__item-icon" /> : null}
-      <span className="Popup__item-text">{children}</span>
+      {children}
     </button>
   </li>
 );
