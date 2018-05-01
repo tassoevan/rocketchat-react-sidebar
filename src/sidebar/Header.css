@@ -9,7 +9,7 @@
   margin: 0 10px;
 }
 
-.Sidebar__toolbar {
+.Sidebar__toolbar, .Sidebar__search {
   flex: 1;
   margin: 2px 0;
   display: flex;
@@ -55,7 +55,7 @@
   background: none;
 }
 
-.Sidebar__toolbar-button:last-child {
+.Sidebar__toolbar-button--more {
   width: 18px;
   min-width: 18px;
   margin-left: -8px;
@@ -64,4 +64,29 @@
 
 .Sidebar__toolbar-button-tooltip {
   position: absolute;
+}
+
+.Sidebar__search {
+
+}
+
+.Sidebar__search-icon {
+  padding: 0 10px;
+}
+
+.Sidebar__search-input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  border-bottom: 1px solid #414852;
+  background: none;
+  color: inherit;
+}
+
+.Sidebar__search-input:focus {
+	outline: 0;
+}
+
+.Sidebar__search-clear {
+  padding: 0 10px;
 }
