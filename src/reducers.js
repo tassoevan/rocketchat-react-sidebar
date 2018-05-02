@@ -10,10 +10,10 @@ import {
 } from './actions';
 
 const initialSidebarState = {
+  searchText: null,
   viewMode: 'extended',
   showAvatars: true,
-  sort: 'alphabetical',
-  searchText: null
+  sort: 'alphabetical'
 };
 
 const sidebar = (state = initialSidebarState, action) => {

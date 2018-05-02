@@ -1,0 +1,32 @@
+.Sidebar__list-title {
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 5px 0;
+  padding: 6px 24px 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.Sidebar__list-title-text {
+  color: #9ea2a8;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Sidebar__list-title-counter {
+  background-color: #414852;
+}
+
+.Sidebar__list-counter {
+  width: 20px;
+  min-width: 20px;
+  padding: 5px 0 5px 0;
+  line-height: 1;
+  border-radius: 2px;
+  color: #9ea2a8;
+  font-size: 10px;
+  text-align: center;
+}
+

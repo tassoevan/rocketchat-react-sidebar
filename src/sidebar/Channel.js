@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { TextAvatar } from './Avatar';
-import Icon from './Icon';
+import { TextAvatar } from '../Avatar';
+import Icon from '../Icon';
+
 import './Channel.css';
 
 export class Channel extends Component {
