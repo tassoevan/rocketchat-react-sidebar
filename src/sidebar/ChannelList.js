@@ -16,7 +16,9 @@ const normalizeChannels = (channels, searchText, sort) => channels
         return channelA.name < channelB.name ? -1: 1;
 
       case 'activity':
-        return channelA.lastMessage.timestamp - channelB.lastMessage.timestamp;
+        const timestampA = channelA.lastMessage.timestamp || channelA.createdAt;
+        const timestampB = channelB.lastMessage.timestamp || channelB.createdAt;
+        return timestampB - timestampA;
 
       default:
         return 0;
