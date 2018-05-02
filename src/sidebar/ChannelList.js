@@ -42,7 +42,9 @@ const PureChannelList = ({
           viewMode={viewMode}
           showAvatar={showAvatars} />
       )) :
-      <ChannelNotFound showAvatar={showAvatars} />
+      <ChannelNotFound
+        viewMode={viewMode}
+        showAvatar={showAvatars} />
     }
   </List>
 );

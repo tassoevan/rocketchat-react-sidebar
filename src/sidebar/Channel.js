@@ -72,8 +72,8 @@ export const Channel = ({
   </div>
 );
 
-export const ChannelNotFound = ({ showAvatar }) => (
-  <div className="Channel Channel--not-found">
+export const ChannelNotFound = ({ viewMode, showAvatar }) => (
+  <div className={`Channel Channel--not-found Channel--${viewMode}`}>
     <div className="Channel__body">
       {showAvatar ? <div className="Channel__avatar" /> : null}
 
