@@ -12,7 +12,19 @@
   flex: 1;
   min-width: 0;
   display: flex;
+  align-items: center;
+}
+
+.Channel--extended .Channel__body {
   padding: 6.5px 0 6.5px 24px;
+}
+
+.Channel--medium .Channel__body {
+  padding: 3.5px 0 3.5px 24px;
+}
+
+.Channel--condensed .Channel__body {
+  padding: 2px 0 2px 24px;
 }
 
 .Channel--not-found .Channel__avatar {
@@ -21,18 +33,40 @@
 }
 
 .Channel__avatar {
+  margin-right: 10px;
+}
+
+.Channel--extended .Channel__avatar {
   width: 36px;
   min-width: 36px;
   height: 36px;
   min-height: 36px;
-  margin-right: 10px;
+  font-size: 20px;
+  line-height: 36px;
+}
+
+.Channel--medium .Channel__avatar {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  min-height: 28px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.Channel--condensed .Channel__avatar {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  min-height: 18px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .Channel__description {
   flex: 1;
   min-width: 0;
   text-align: left;
-  margin-right: 10px;
 }
 
 .Channel--has-unread-messages .Channel__description {
@@ -40,11 +74,14 @@
 }
 
 .Channel__name {
-  font-weight: bold;
   line-height: 1.5;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.Channel--has-unread-messages .Channel__name {
+  font-weight: bold;
 }
 
 .Channel__last-message {
@@ -55,12 +92,22 @@
   text-overflow: ellipsis;
 }
 
+.Channel--medium .Channel__last-message,
+.Channel--condensed .Channel__last-message {
+  display: none;
+}
+
 .Channel__stats {
   flex: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
+}
+
+.Channel--medium .Channel__stats,
+.Channel--condensed .Channel__stats {
+  flex-direction: row;
 }
 
 .Channel__last-message-time-since {
@@ -73,6 +120,7 @@
 .Channel .Channel__unread-messages-count {
   background-color: #1d74f5;
   color: #ffffff;
+  margin-left: 10px;
 }
 
 .Channel .Channel__more {

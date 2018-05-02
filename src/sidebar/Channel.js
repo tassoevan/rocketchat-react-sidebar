@@ -4,47 +4,44 @@ import Icon from '../Icon';
 
 import './Channel.css';
 
-export class Channel extends Component {
-  static colors = [
-    '#4a90e2', '#7ed321', '#e45062',
-    '#f5a623', '#f8e71c'
-  ]
+const availableColors = [
+  '#4a90e2', '#7ed321', '#e45062',
+  '#f5a623', '#f8e71c'
+];
 
-  static mapChannelColors = {}
+const mapChannelColors = {}
 
-  renderAvatar() {
-    const {
-      name,
-      showAvatar
-    } = this.props;
-
-    if (!showAvatar) {
-      return null;
-    }
-
-    if (!Channel.mapChannelColors[name]) {
-      const colorIndex = Object.keys(Channel.mapChannelColors).length % Channel.colors.length;
-      Channel.mapChannelColors[name] = Channel.colors[colorIndex];
-    }
-
-    return (
-      <div className="Channel__avatar">
-        <TextAvatar color={Channel.mapChannelColors[name]}>{name.charAt(0)}</TextAvatar>
-      </div>
-    );
+const ChannelAvatar = ({ name, visible }) => {
+  if (!visible) {
+    return null;
   }
 
+  if (!mapChannelColors[name]) {
+    const colorIndex = Object.keys(mapChannelColors).length % availableColors.length;
+    mapChannelColors[name] = availableColors[colorIndex];
+  }
+
+  return (
+    <div className="Channel__avatar">
+      <TextAvatar color={mapChannelColors[name]}>{name.charAt(0)}</TextAvatar>
+    </div>
+  );
+};
+
+export class Channel extends Component {
   render() {
     const {
       name,
       unreadMessages,
-      lastMessage
+      lastMessage,
+      viewMode,
+      showAvatar
     } = this.props;
 
     return (
-      <div className={`Channel${unreadMessages > 0 ? ' Channel--has-unread-messages' : ''}`}>
+      <div className={`Channel Channel--${viewMode}${unreadMessages > 0 ? ' Channel--has-unread-messages' : ''}`}>
         <button className="Channel__body">
-          {this.renderAvatar()}
+         <ChannelAvatar name={name} visible={showAvatar} />
           <div className="Channel__description">
             <div className="Channel__name">{name}</div>
             {lastMessage ? (
