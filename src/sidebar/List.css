@@ -1,3 +1,7 @@
+.Sidebar__list {
+  user-select: none;
+}
+
 .Sidebar__list-title {
   align-items: center;
   justify-content: space-between;
