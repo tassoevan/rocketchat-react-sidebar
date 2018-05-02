@@ -1,6 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Icon from '../Icon';
-import { ActionablePopup, Item as PopupItem, Separator as PopupSeparator } from '../Popup';
+import {
+  ActionablePopup,
+  Item as PopupItem,
+  Separator as PopupSeparator
+} from '../Popup';
+import {
+  showPopup,
+  searchInSidebar,
+  setSidebarViewMode,
+  setSidebarAvatarVisibility,
+  setSidebarSorting
+} from '../actions';
+
 import './ToolBar.css';
 
 const Button = ({ label, ...props}) => (
@@ -17,7 +30,18 @@ const Item = props => (
   <div className="Sidebar__toolbar-item" {...props} />
 );
 
-export default ({
+const mapStateToProps = ({ sidebar: { viewMode, showAvatars, sort } }) =>
+  ({ viewMode, showAvatars, sort });
+
+const mapDispatchToProps = dispatch => ({
+  onRequestSearch: () => dispatch && dispatch(searchInSidebar('')),
+  onSetViewMode: viewMode => dispatch && dispatch(setSidebarViewMode(viewMode)),
+  onSetAvatarVisibility: show => dispatch && dispatch(setSidebarAvatarVisibility(show)),
+  onSetSorting: sort => dispatch && dispatch(setSidebarSorting(sort)),
+  onShowPopup: popupId => dispatch && dispatch(showPopup(popupId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(({
   viewMode,
   showAvatars,
   sort,
@@ -95,4 +119,4 @@ export default ({
 
     <MoreButton />
   </div>
-);
+));
