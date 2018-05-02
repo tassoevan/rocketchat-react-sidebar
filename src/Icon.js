@@ -138,4 +138,4 @@ const icons = {
   )
 };
 
-export const Icon = ({ name }) => icons[name] ? icons[name]() : null;
+export default ({ name }) => icons[name] ? icons[name]() : null;

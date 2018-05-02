@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { SidebarContainer } from './Sidebar';
+import { Sidebar } from './Sidebar';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <SidebarContainer />
+        <Sidebar />
 
         <main>
           Content goes here

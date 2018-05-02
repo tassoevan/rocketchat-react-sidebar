@@ -12,7 +12,8 @@ import {
 const initialSidebarState = {
   viewMode: 'extended',
   showAvatars: true,
-  sort: 'alphabetical'
+  sort: 'alphabetical',
+  searchText: null
 };
 
 const sidebar = (state = initialSidebarState, action) => {

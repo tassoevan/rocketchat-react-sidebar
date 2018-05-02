@@ -29,22 +29,36 @@ const List = ({ title, count, children }) => (
   </div>
 );
 
-const setViewMode =
-  (dispatch, viewMode) => dispatch && dispatch(setSidebarViewMode(viewMode));
-const setAvatarVisibility =
-  (dispatch, show) => dispatch && dispatch(setSidebarAvatarVisibility(show));
-const setSorting =
-  (dispatch, sort) => dispatch && dispatch(setSidebarSorting(sort));
+const mapStateToProps = ({ sidebar }) => ({ ...sidebar });
 
-export const Sidebar = ({ viewMode, showAvatars, sort, dispatch }) => (
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  onSetViewMode: viewMode => dispatch && dispatch(setSidebarViewMode(viewMode)),
+  onSetAvatarVisibility: show => dispatch && dispatch(setSidebarAvatarVisibility(show)),
+  onSetSorting: sort => dispatch && dispatch(setSidebarSorting(sort))
+});
+
+export const Sidebar = connect(mapStateToProps, mapDispatchToProps)(({
+  viewMode,
+  onSetViewMode,
+  showAvatars,
+  onSetAvatarVisibility,
+  sort,
+  onSetSorting,
+  searchText,
+  dispatch
+}) => (
   <aside className={`Sidebar Sidebar--viewmode-${viewMode}`}>
     <Header
+      dispatch={dispatch}
       viewMode={viewMode}
-      onSetViewMode={viewMode => setViewMode(dispatch, viewMode)}
+      onSetViewMode={onSetViewMode}
       showAvatars={showAvatars}
-      onSetAvatarVisibility={show => setAvatarVisibility(dispatch, show)}
+      onSetAvatarVisibility={onSetAvatarVisibility}
       sort={sort}
-      onSetSorting={sort => setSorting(dispatch, sort)} />
+      onSetSorting={onSetSorting}
+      searchText={searchText}
+    />
 
     <List title="Channels" count={7}>
       {data.channelList.map((channel, key) => (
@@ -59,8 +73,4 @@ export const Sidebar = ({ viewMode, showAvatars, sort, dispatch }) => (
       <ChannelNotFound showAvatar={showAvatars} />
     </List>
   </aside>
-);
-
-const mapStateToProps = ({ sidebar }) => ({ ...sidebar });
-
-export const SidebarContainer = connect(mapStateToProps)(Sidebar);
+));
