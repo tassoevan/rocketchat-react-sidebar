@@ -35,6 +35,7 @@ const PureChannelList = ({
         <Channel key={key}
           name={channel.name}
           unreadMessages={channel.unreadMessages}
+          createdAt={channel.createdAt}
           lastMessage={channel.lastMessage}
           viewMode={viewMode}
           showAvatar={showAvatars} />

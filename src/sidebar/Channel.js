@@ -1,4 +1,7 @@
 import React from 'react';
+import TimeAgo from 'javascript-time-ago'
+import TimeAgoLocaleEn from 'javascript-time-ago/locale/en'
+import TimeAgoComponent from 'react-time-ago'
 import { TextAvatar } from '../Avatar';
 import Icon from '../Icon';
 
@@ -28,9 +31,12 @@ const ChannelAvatar = ({ name, visible }) => {
   );
 };
 
+TimeAgo.locale(TimeAgoLocaleEn);
+
 export const Channel = ({
   name,
   unreadMessages,
+  createdAt,
   lastMessage,
   viewMode,
   showAvatar
@@ -49,7 +55,11 @@ export const Channel = ({
       </div>
 
       <div className="Channel__stats">
-        <div className="Channel__last-message-time-since">2h</div>
+        <div className="Channel__last-modification-time">
+          <TimeAgoComponent timeStyle="twitter">
+            {(lastMessage.timestamp || createdAt) * 1000}
+          </TimeAgoComponent>
+        </div>
         {unreadMessages > 0 ? (
           <div className="Channel__unread-messages-count Sidebar__list-counter">{unreadMessages}</div>
         ) : null}

@@ -110,11 +110,12 @@
   flex-direction: row;
 }
 
-.Channel__last-message-time-since {
+.Channel__last-modification-time {
   font-size: 9px;
   margin: 5px 0 3.5px 0;
   line-height: 1;
   vertical-align: baseline;
+  white-space: nowrap;
 }
 
 .Channel .Channel__unread-messages-count {
